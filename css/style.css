@@ -999,7 +999,7 @@ footer .footer_block .footer_group .connect_pr a:last-child {
 
 
 .module-container {
-  max-width: 1000px;
+  max-width: 1200px;
   height: 500px;
   margin: 0 auto;
   position: relative;
@@ -1019,7 +1019,7 @@ footer .footer_block .footer_group .connect_pr a:last-child {
   position: absolute;
   opacity: 0;
   transform: scale(0.5);
-  font-size: clamp(15px, 2vw, 20px);
+  font-size: clamp(14px, 2vw, 20px);
   font-weight: bold;
   color: #ffffff;
   background: linear-gradient(45deg, #FF5500, #FFDC09);
@@ -1056,7 +1056,7 @@ footer .footer_block .footer_group .connect_pr a:last-child {
 }
 
 .module-container-2 {
-  max-width: 1000px;
+  max-width: 1200px;
   height: 500px;
   margin: 0 auto;
   position: relative;
@@ -1080,7 +1080,7 @@ footer .footer_block .footer_group .connect_pr a:last-child {
 .module-2 {
   display: inline-block;
   opacity: 0;
-  font-size: 18px;
+  font-size: clamp(14px, 2vw, 20px);
   font-weight: bold;
   color: #FF5500;
   background: #FF8500;
@@ -1112,26 +1112,137 @@ footer .footer_block .footer_group .connect_pr a:last-child {
 
 
 /* 3  */
+
+
 .module-container-3 {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
+  height: 400px; /* Занимает всю высоту экрана */
+  perspective: 1000px; /* Для 3D эффекта */
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 85, 0, 0.8), rgba(255, 204, 0, 0.8)), 
+              url('https://www.transparenttextures.com/patterns/diagmonds-light.png'); /* Полупрозрачный градиент и текстура */
+  z-index: 1;
+  animation: backgroundMove 10s linear infinite; /* Анимация движения фона */
+}
+
+@keyframes backgroundMove {
+  0% {
+      background-position: 0% 0%;
+  }
+  100% {
+      background-position: 100% 100%;
+  }
 }
 
 .module-list-3 {
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Текст поверх фона */
 }
 
 .module-3 {
+  display: inline-block;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: bold;
+  color: #ffffff;
+  background: #212121;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeInScaleOut 4s ease-in-out infinite;
+}
+
+.module-3:nth-child(odd) {
+  animation-delay: 1s;
+}
+
+.module-3:nth-child(even) {
+  animation-delay: 2s;
+}
+
+@keyframes fadeInScaleOut {
+  0% {
+      opacity: 0;
+      transform: scale(0.1);
+  }
+  25% {
+      opacity: 1;
+      transform: scale(1);
+  }
+  50% {
+      opacity: 1;
+      transform: scale(0.8);
+  }
+  75% {
+      opacity: 1;
+      transform: scale(1);
+  }
+  100% {
+      opacity: 0;
+      transform: scale(0.1);
+  }
+}
+
+/*  4 */
+
+
+
+.module-container-4 {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.background-overlay {
   position: absolute;
-  font-size: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 85, 0, 0.8), rgba(255, 204, 0, 0.8));
+  z-index: 1;
+}
+
+.module-list-4 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.module-4 {
+  display: inline-block;
+  font-size: clamp(14px, 2.2vw, 20px);
   font-weight: bold;
   color: #ffffff;
   background: linear-gradient(45deg, #ff005e, #ffcc00);
@@ -1139,9 +1250,110 @@ footer .footer_block .footer_group .connect_pr a:last-child {
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 10px;
+
   margin: 10px;
   opacity: 0;
+  animation: dynamicEffect 8s ease-in-out infinite;
   white-space: nowrap;
 }
 
+@keyframes dynamicEffect {
+  0% {
+      opacity: 0;
+      transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+  10% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  20% {
+      transform: translate(20px, -20px) scale(1.1) rotate(10deg);
+  }
+  30% {
+      transform: translate(-30px, 30px) scale(0.9) rotate(-15deg);
+  }
+  40% {
+      transform: translate(40px, -40px) scale(1.2) rotate(20deg);
+  }
+  50% {
+      transform: translate(-50px, 50px) scale(1) rotate(-25deg);
+  }
+  60% {
+      transform: translate(60px, -60px) scale(0.8) rotate(30deg);
+  }
+  70% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  80% {
+      transform: scale(1.5) rotate(360deg);
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 0;
+      transform: scale(0.5) rotate(720deg);
+  }
+}
+.module-4:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.module-4:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.module-4:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.module-4:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.module-4:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.module-4:nth-child(6) {
+  animation-delay: 5s;
+}
+
+.module-4:nth-child(7) {
+  animation-delay: 6s;
+}
+
+.module-4:nth-child(8) {
+  animation-delay: 7s;
+}
+
+.module-4:nth-child(9) {
+  animation-delay: 8s;
+}
+
+.module-4:nth-child(10) {
+  animation-delay: 9s;
+}
+
+.module-4:nth-child(11) {
+  animation-delay: 10s;
+}
+
+.module-4:nth-child(12) {
+  animation-delay: 11s;
+}
+
+.module-4:nth-child(13) {
+  animation-delay: 12s;
+}
+
+.module-4:nth-child(14) {
+  animation-delay: 13s;
+}
+
+.module-4:nth-child(15) {
+  animation-delay: 14s;
+}
+
+.module-4:nth-child(16) {
+  animation-delay: 15s;
+}
